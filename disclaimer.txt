@@ -1,0 +1,1 @@
+All *exe files are compiled directly from the *cs files (for .NET Framework 4.5). If you don't trust my *exe files (as you shouldn't), you can compile them for yourselves and compare their md5sums.

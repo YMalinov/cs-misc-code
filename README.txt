@@ -1,0 +1,1 @@
+This repository contains some of the earliest code I've ever written. I'm going to update it occasionally if I start an interesting project, or if I decide to rewrite some badly written parts.
