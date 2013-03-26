@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Frogger
 {
-    class ConsoleRenderer : IRenderer
+    class ConsoleRenderer
     {
         public int renderContextMatrixRows { get; private set; }
         public int renderContextMatrixCols { get; private set; }

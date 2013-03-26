@@ -52,7 +52,7 @@ namespace Frogger
                     }
             }
 
-            return null;
+            return null; //this code will never be executed and yet VS won't compile without it :)
         }
     }
 }

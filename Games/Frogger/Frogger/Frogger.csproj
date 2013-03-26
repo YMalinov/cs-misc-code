@@ -47,12 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bonus.cs" />
-    <Compile Include="Car.cs" />
     <Compile Include="Converter.cs" />
     <Compile Include="InvalidNumberOfLanesException.cs" />
-    <Compile Include="IRenderer.cs" />
-    <Compile Include="IUserInterface.cs" />
     <Compile Include="RandomGenerators.cs" />
     <Compile Include="ScoreBonus.cs" />
     <Compile Include="ConsoleRenderer.cs" />
@@ -66,13 +62,11 @@
     <Compile Include="Menu.cs" />
     <Compile Include="MovingObject.cs" />
     <Compile Include="OneUpBonus.cs" />
-    <Compile Include="PassableObject.cs" />
     <Compile Include="RoadMarkings.cs" />
     <Compile Include="ZZ-Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlowerTrafficBonus.cs" />
     <Compile Include="StaticObject.cs" />
-    <Compile Include="Truck.cs" />
     <Compile Include="Vehicle.cs" />
   </ItemGroup>
   <ItemGroup>

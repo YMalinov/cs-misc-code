@@ -16,7 +16,7 @@ namespace Frogger
         {
             this.TopLeft += this.Speed;
 
-            if (this.topLeft.Col <= -1)
+            if (this.topLeft.Col <= -1) //teleports the moving object to the other side of the screen
             {
                 this.topLeft.Col = Console.WindowWidth - 1;
             }

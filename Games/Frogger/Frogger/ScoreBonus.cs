@@ -1,6 +1,6 @@
 ﻿namespace Frogger
 {
-    class ScoreBonus : Bonus
+    class ScoreBonus : StaticObject
     {
         public ScoreBonus(Coordinates topLeft)
             : base(topLeft, new char[] { 'S' })

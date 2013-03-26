@@ -36,7 +36,7 @@ namespace Frogger
             //otherwise we get a terrible performance and I really can't really be bothered
             //to see why
 
-            KeyboardInterface keyInterface = new KeyboardInterface();     
+            KeyboardInterface keyInterface = new KeyboardInterface();
             Engine engine = new Engine(renderer, keyInterface);
 
             Frog frog = new Frog(new Coordinates(Console.WindowHeight - 3, (Console.WindowWidth - 2) / 2));
@@ -57,12 +57,12 @@ namespace Frogger
 
                 for (int col = 0; col < Console.WindowWidth - 1; col += 8)
                 {
-                    Truck truck = new Truck(new Coordinates(row, col), speed, RandomGenerators.TruckLength());
-                    engine.AddObject(truck);
+                    Vehicle vehicle = new Vehicle(new Coordinates(row, col), speed, RandomGenerators.TruckLength());
+                    engine.AddObject(vehicle);
                 }
             }
 
-            engine.AddObject(new ScoreBonus(RandomGenerators.RandomPosition())); //adding an indestructible score bonus
+            engine.AddObject(new ScoreBonus(RandomGenerators.RandomPosition())); //adding a score bonus, which will be automatically regenerated on pickup
 
             keyInterface.OnDownPressed += (sender, eventInfo) =>
             {

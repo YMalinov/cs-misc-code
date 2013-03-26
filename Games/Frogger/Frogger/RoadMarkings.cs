@@ -1,6 +1,6 @@
 ﻿namespace Frogger
 {
-    class RoadMarkings : PassableObject
+    class RoadMarkings : GameObject
     {
         public RoadMarkings(Coordinates topLeft)
             : base(topLeft, new char[] { '-', ' ' })

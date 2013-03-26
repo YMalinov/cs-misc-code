@@ -1,6 +1,6 @@
 ﻿namespace Frogger
 {
-    class SlowerTrafficBonus : Bonus
+    class SlowerTrafficBonus : StaticObject
     {
         public SlowerTrafficBonus(Coordinates topLeft)
             : base(topLeft, new char[] { '-' })

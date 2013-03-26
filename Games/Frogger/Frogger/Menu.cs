@@ -8,10 +8,12 @@ namespace Frogger
     {
         private static string text = ""; //a rather labourious way to center the text in the console
 
+        private static int maxNumberOfLanes = Converter.HeightToLanes(Console.LargestWindowHeight);
+
         public static void WriteMenu(int sleepTimeForLogo = 2000)
         {
             //Shows the logo
-            Console.Title = "JustFrogger";
+            Console.Title = "Frogger";
             WriteLogo();
             Thread.Sleep(sleepTimeForLogo);
             
@@ -22,9 +24,6 @@ namespace Frogger
 
             Console.BufferHeight = Console.WindowHeight;
             Console.BufferWidth = Console.WindowWidth;
-            
-            //write rest of stuff, ex. authors
-            //probably a good idea to include a legend of some sort for all of the objects
 
             text = "Frogger";
             Console.SetCursorPosition(Console.BufferWidth / 2 - text.Length / 2, 5);
@@ -38,7 +37,7 @@ namespace Frogger
             Console.SetCursorPosition(Console.WindowWidth / 2 - text.Length / 2, Console.WindowHeight / 2 - 1);
             Console.Write(text);
 
-            text = "Press 3 for Hard mode (23 lanes)";
+            text = "Press 3 for Hard mode (max number of lanes for your resolution: " + maxNumberOfLanes + " lanes)";
             Console.SetCursorPosition(Console.WindowWidth / 2 - text.Length / 2, Console.WindowHeight / 2);
             Console.Write(text);
 
@@ -50,7 +49,6 @@ namespace Frogger
             Console.SetCursorPosition(Console.WindowWidth / 2 - text.Length / 2, Console.WindowHeight / 2 + 3);
             Console.Write(text);
 
-            int level = 0;
             bool continueLoop = true;
             while (continueLoop)
             {
@@ -62,21 +60,21 @@ namespace Frogger
                         case ConsoleKey.D1:
                         case ConsoleKey.NumPad1:
                             {
-                                level = 1;
+                                Level.DrawLevel(5); //DrawLevel(number of desired lanes)
                                 continueLoop = false;
                                 break;
                             }
                         case ConsoleKey.D2:
                         case ConsoleKey.NumPad2:
                             {
-                                level = 2;
+                                Level.DrawLevel(13);
                                 continueLoop = false;
                                 break;
                             }
                         case ConsoleKey.D3:
                         case ConsoleKey.NumPad3:
                             {
-                                level = 3;
+                                Level.DrawLevel(maxNumberOfLanes);
                                 continueLoop = false;
                                 break;
                             }
@@ -94,8 +92,6 @@ namespace Frogger
                     }
                 }
             }
-
-            InitializeGame(level);
         }
 
         private static void CustomLevelScreen()
@@ -108,9 +104,9 @@ namespace Frogger
 
             try
             {
-                int lanes = Converter.LanesToHeight(int.Parse(Console.ReadLine()));
+                int lanes = int.Parse(Console.ReadLine());
 
-                if (1 >= lanes || lanes >= Console.LargestWindowHeight)
+                if (1 >= lanes || lanes > maxNumberOfLanes)
                 {
                     throw new InvalidNumberOfLanesException();
                 }
@@ -125,70 +121,72 @@ namespace Frogger
             }
         }
 
-        private static void InitializeGame(int level)
-        {
-            Console.Clear();
-            switch (level)
-            {
-                case 1:
-                    {
-                        Level.DrawLevel(5); //DrawLevel(number of desired lanes)
-                        break;
-                    }
-                case 2:
-                    {
-                        Level.DrawLevel(13);
-                        break;
-                    }
-                case 3:
-                    {
-                        Level.DrawLevel(23);
-                        break;
-                    }
-            }
-        }
-
-        public static void WriteLogo()
+        public static void WriteLogo() //logo by Assi.NET :)
         {
             Console.CursorVisible = false;
+            Console.WindowHeight = 23;
+            Console.WindowWidth = 111;
 
-            try
-            {
-                string logoAddress = "";
+            Console.WriteLine("   `........... `.,......`        ..,.,...`         ..,..,,.`       `...,,...`    .,.........` .........`  TM ");
+            Console.WriteLine("  ..,.,.......,.,,......,.,`    .,.,....,,..`     `.,,,....,,,`   `.,,,....,,.. `.,.........,,,,,,...,,,..    ");
+            Console.WriteLine(" .,.@@@@@@@@@@;..@@@@@@@#,.,.  .,,:@@@@@@#....  `,..,@@@#@@#.,,. `,,.+@@#@@@',,,..;@@@@@@@@@#,,'@@@@@@@',,,`  ");
+            Console.WriteLine(" .,@';;;;;;;;;#,@;:;;;;;;@@.,....@#:';;;;'@#,,``.,.@@;;;;;;'@#..`,.;#+;';;;;#@,.,,#;;;;;;;;;+@:#;;';;;;+@;.,` ");
+            Console.WriteLine(" ..@:;;;;;;;;;;#@;;;;;;;;;'@...,@;;;;;;;;;;+#...,.@;';;;;;;;;##...##;;;;;;;;;;@.,#;;;;;;;;;;;@@;;;;;;;;;;@;,. ");
+            Console.WriteLine(" ..@;;;;;;;;;:+'#;;;;;;;;;;+#,.@;;;;;;;;;;;;+@,,.@;;;;;;;;;;;;@..'#;;;;;;;;;;;'#.@;;;;;;;;;;;@@;;;;;;;;;;;@.,`");
+            Console.WriteLine(" ..@;;;'######@.#;;;'+';;;;;@.@;;;;;;++;;;;;;@;,@';;;;;'#;;;;;@,.#;;;;;;++;;;;'#.@;;;;######@:@;;;;++';;;;'#,.");
+            Console.WriteLine(" ..@;;;+'::::..,#;;;#''@+;;'#:@;;;;+@+;#@';;;;#.@;;;;+@+;#@';##.#';;;:#@';@#;'@.,@;;;;@::::,.,@;;;;@'#@;;;;@..");
+            Console.WriteLine(" ..@;;;+#'++,.,,@;;;#,..@;;;'@';;;+@..,,.@;;;;@++;;;'@,,...#@;..@;;;;#;....,@@..,@;;;;@####..,@;;;;@,,#+;;;@.,");
+            Console.WriteLine(" ..@;;;;+'++@@.,#;;;#,..@;;;'@;;;;@.,.,,.,#;;;+@;;;;@.,@@@@@###`@;;;;@.@@@######.@;;;;';'';@:,@;;;;@..@';;;@..");
+            Console.WriteLine(" ..@;;;;;;;;;@.,#;;;#@@@;;;;#@;;;;@,.,,,,.@;;;;@;;;:@.@;;;;;;;;@#;;;#:,@;;;;;;;#,@;;;;;;;;;;@,@;;;;@@@#;;;;@, ");
+            Console.WriteLine(" ..@;;;;;;;;;@..#;;;;;;;;;;;@@;;;;@.,,,...@;;;;@;;;;@.@;;;;;;;;@#;;;#:++;;;;;;;'#@;;;;;;;;;'@,@;;;;;;;;;;;#;` ");
+            Console.WriteLine(" ..@;;;'''''##,,#;;;;;;;;;;@,@;;;;@.,...,,#;;;'@;;;;@.@';;;;;;;@@;;;'@.@;;;;;;;'#@;;;;+++##@,,@;;;;;;;;;;+@,` ");
+            Console.WriteLine(" ..@;;;+#+++:.,.#;;;;;;;;#@..@';;;##,,,,.@:;;;##';;;+@.@@@@';;;@@;;;;#:+@@@@;;;'#@;;;;@;;;;.,,@;;;;;;;;'@@,`  ");
+            Console.WriteLine(" ..@;;;++,....,,#;;;';;;;;#@.,@;;;;#@;:+#;;;;;@.@;;;;#@;`.@;;;;@#';;;;#@,`;#;;;'#@;;;;@.,,,...@;;;;:;;;;'#:.  ");
+            Console.WriteLine(" ..@;;;+',.``..,#;;;##;;;;;'@.@;;;;;;+#+;;;;;#+.@';;;;;#@#;;;;;@.@;;;;;'#@+;;;;#;@;;;;#@###@@,@;;;;#;;;;;;@+. ");
+            Console.WriteLine(" ..@;;;++,`  `,.#;;;#@#;;;;;++.@;;;;;;;;;;;;'@.,.#:;;;;;;;;;;;#+,'#;;;;;;;;;;;;@.@;;;;;;;;;;;@@;;;;#@';;;;;@.`");
+            Console.WriteLine("`..@;;;#;,`  `,,#;;;#,'@;;;;;#,:@;;;;;;;;;;'@.....@';;;;;;;;;+@,..##;;;;;;;;;;#'.@;;;;;;;;;;;@@;;;;@,@#;;;;@,`");
+            Console.WriteLine(" .,@;;;@..`   ,,@;;;@..,@';;@:.,.@#;;;;;;;@#...`.,.@#;;;;;;;@@.....;@';;;;;;+#',,,#;;;;;;;;;;@+#;;+#,.##;;;@,`");
+            Console.WriteLine(" `..@@@',,    .,.#@@:,,,.@@@#..,,,'@@@@@@@....  `..,:@@##@@@.,,. `...#@######.,.,,'@@@@@@@@@@..#@@@.,,.'@@@., ");
+            Console.WriteLine(" `....,,.`    `.,,...,`.,...,.` .,,,.......,`     `,,,.....,.,`   `..,.....,... `,,..........,....,..`,....., ");
+            Console.WriteLine("   `.,..`      `..,,.`  `.,,.`   ``.,,,.,.``        `.,,....`       `..,.....`   `...........``....`  `.,..,  ");
 
-                if (File.Exists("../../logo.txt"))
-                {
-                    logoAddress = "../../logo.txt";
-                }
-                else if (File.Exists("logo.txt"))
-                {
-                    logoAddress = "logo.txt";
-                }
-                else
-                {
-                    throw new FileNotFoundException();
-                }
+            //try
+            //{
+            //    string logoAddress = "";
 
-                using (StreamReader reader = new StreamReader(logoAddress))
-                {
-                    string currentLine = reader.ReadLine();
-                    while (currentLine != null)
-                    {
-                        Console.WindowHeight = 23;
-                        Console.WindowWidth = currentLine.Length;
+            //    if (File.Exists("../../logo.txt"))
+            //    {
+            //        logoAddress = "../../logo.txt";
+            //    }
+            //    else if (File.Exists("logo.txt"))
+            //    {
+            //        logoAddress = "logo.txt";
+            //    }
+            //    else
+            //    {
+            //        throw new FileNotFoundException();
+            //    }
 
-                        Console.BufferHeight = Console.WindowHeight;
-                        Console.BufferWidth = Console.WindowWidth;
+            //    using (StreamReader reader = new StreamReader(logoAddress))
+            //    {
+            //        string currentLine = reader.ReadLine();
+            //        while (currentLine != null)
+            //        {
+            //            Console.WindowHeight = 23;
+            //            Console.WindowWidth = currentLine.Length;
 
-                        Console.Write(currentLine);
-                        currentLine = reader.ReadLine();
-                    }
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                Console.WriteLine("Logo not found! Continuing to the menu...");
-            }
+            //            Console.BufferHeight = Console.WindowHeight;
+            //            Console.BufferWidth = Console.WindowWidth;
+
+            //            Console.Write(currentLine);
+            //            currentLine = reader.ReadLine();
+            //        }
+            //    }
+            //}
+            //catch (FileNotFoundException)
+            //{
+            //    Console.WriteLine("Logo not found! Continuing to the menu...");
+            //}
         }
     }
 }

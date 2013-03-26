@@ -9,8 +9,8 @@ namespace Frogger
     {
         string text; //used to center the text in the console, don't mind it
 
-        IRenderer renderer;
-        IUserInterface userInterface;
+        ConsoleRenderer renderer;
+        KeyboardInterface userInterface;
         List<GameObject> allObjects;
         Frog playerFrog;
         Coordinates frogStartingPosition;
@@ -40,12 +40,12 @@ namespace Frogger
 
         public void AddObject(GameObject obj)
         {
-            if (obj is Truck)
+            if (obj is Vehicle)
             {
-                Truck tempTruck = obj as Truck;
-                for (int i = 0; i < tempTruck.Length; i++)
+                Vehicle tempVehicle = obj as Vehicle;
+                for (int i = 0; i < tempVehicle.Length; i++)
                 {
-                    this.allObjects.Add(new Car(new Coordinates(tempTruck.TopLeft.Row, tempTruck.TopLeft.Col + i), tempTruck.Speed));
+                    this.allObjects.Add(new Vehicle(new Coordinates(tempVehicle.TopLeft.Row, tempVehicle.TopLeft.Col + i), tempVehicle.Speed));
                 }
             }
             else if (obj is Frog)
@@ -210,7 +210,7 @@ namespace Frogger
 
                 GameObject collision = CollisionDetector();
 
-                if (collision is Car)
+                if (collision is Vehicle)
                 {
                     this.lives--;
                     this.playerFrog.TopLeft = frogStartingPosition;
@@ -248,7 +248,7 @@ namespace Frogger
                     allObjects.Remove(collision);
                 }
 
-                if (randomizer.Next(0, 500) == 3)
+                if (randomizer.Next(0, 1500) == 3)
                 {
                     allObjects.Add(RandomGenerators.StaticObjectOnRandomPosition());
                 }

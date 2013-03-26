@@ -2,7 +2,7 @@
 
 namespace Frogger
 {
-    class KeyboardInterface : IUserInterface
+    class KeyboardInterface
     {
         public void ProcessInput()
         {
