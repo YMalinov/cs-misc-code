@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frogger", "Frogger\Frogger.csproj", "{AD99871A-EC47-4091-8C83-3972A12C1B2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D350F54E-A891-4480-A2D8-124E2900243E}"
+	ProjectSection(SolutionItems) = preProject
+		Frogger.doc = Frogger.doc
+		frogger_logo.png = frogger_logo.png
+		FroggerDiagram.png = FroggerDiagram.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs26
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Frogger\\Frogger.csproj
+		SccProjectName1 = Frogger
+		SccLocalPath1 = Frogger
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD99871A-EC47-4091-8C83-3972A12C1B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD99871A-EC47-4091-8C83-3972A12C1B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD99871A-EC47-4091-8C83-3972A12C1B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD99871A-EC47-4091-8C83-3972A12C1B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
