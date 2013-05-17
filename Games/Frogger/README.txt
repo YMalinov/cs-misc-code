@@ -1,4 +1,5 @@
-A console implementation of the popular computer game "Frogger":
+A console implementation of the popular computer game "Frogger", made as a team exercise for Telerik Academy, following the best practices
+of object-oriented programming and design:
 
 * The object of the game is for the player to survive as much as he can. 
 * Points are awarded for every movement the player makes with the arrow keys, once on a lane.
