@@ -2,7 +2,8 @@ repo change log:
 	Version 1.0
 		* Added games: FallingRocks, SlotMachine, SimonGame, CarGame.
 		* Added programs: KaprekarConstant, MorseCodeTranslator, PerfectNumber.
+	Version 1.1
+		* Added games: Frogger.
 
 TODO:
-	* Add .txt files to every program and game, describing the inner workings of it at length.
-	* I'm currently working on a console Tetris port.
+	* Add .txt files to every program and game, describing its inner workings at length.
