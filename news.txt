@@ -4,6 +4,8 @@ repo change log:
 		* Added programs: KaprekarConstant, MorseCodeTranslator, PerfectNumber.
 	Version 1.1
 		* Added games: Frogger.
+	Version 1.2
+		* Moved Frogger to its own repo.
 
 TODO:
 	* Add .txt files to every program and game, describing its inner workings at length.
